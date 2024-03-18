@@ -18,10 +18,6 @@ class LinkController extends Controller
      */
     public function store(StoreLinkRequest $request): JsonResponse
     {
-        $request->validate([
-            'original_url' => 'required|url'
-        ]);
-
         $shortenedUrl = Str::random(6); // Generating short URL
 
         if (!empty($request->original_url)) {
